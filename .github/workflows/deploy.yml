@@ -1,0 +1,16 @@
+name: Secure Deployment Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Use Secret
+      run: echo "API KEY is ${{ secrets.API_KEY }}"
